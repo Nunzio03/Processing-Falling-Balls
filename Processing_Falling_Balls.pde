@@ -1,11 +1,7 @@
   int width = 1900;                  //window width
-  int height = 2000;                 //window height
+  int height = 1700;                 //window height
   int heightV  = 200 ;               //floor height ( 0 means ground level )
-  int circleDiameter = 200;          //Diameter of the circle
-  int circleX = width/2;             //circle starting X position
-  double circleY = circleDiameter/2; //circle starting Y position
-  double speedY = 0;                  //circle starting speedY
-  double gravity = 7;                //gravity felt by the circle 
+
   boolean taken=false;
   int errorX;
   int errorY;
