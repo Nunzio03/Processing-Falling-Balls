@@ -1,6 +1,6 @@
   public class Ball{
     int circleDiameter = 200;          //Diameter of the circle
-    int circleX = width/2;             //circle starting X position
+    double circleX = width/2;             //circle starting X position
     double circleY = circleDiameter/2; //circle starting Y position
     double speedY = 0;                  //circle starting speedY
     double gravity = 7;                //gravity felt by the circle 
@@ -40,7 +40,7 @@
    
       isTaken();
       
-      ellipse(circleX,(int)circleY,circleDiameter, circleDiameter);
+      ellipse((int)circleX,(int)circleY,circleDiameter, circleDiameter);
       
       
     }
@@ -51,7 +51,7 @@
         if((mouseX-circleX<circleDiameter/2 && mouseX-circleX>-circleDiameter/2)&&
       (mouseY-circleY<circleDiameter/2 && mouseY-circleY>-circleDiameter/2)){
         taken=true;
-        errorX=mouseX-circleX;
+        errorX=mouseX-(int)circleX;
         errorY=mouseY-(int)circleY;
     
         }
@@ -62,6 +62,15 @@
         }
       }
     
+    }
+    
+    
+    public int getX(){
+      return (int) circleX;
+    }
+    
+    public int getY(){
+      return (int) circleY;
     }
     
     
