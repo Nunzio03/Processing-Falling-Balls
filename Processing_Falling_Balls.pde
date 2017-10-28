@@ -2,16 +2,13 @@
   int width = 1900;                  //window width
   int height = 1700;                 //window height
   int heightV  = 200 ;               //floor height ( 0 means ground level )
-  int circleDiameter = 200;          //Diameter of the circle
-  int circleX = width/2;             //circle starting X position
-  double circleY = circleDiameter/2; //circle starting Y position
-  double speedY = 0;                  //circle starting speedY
-  double gravity = 7;                //gravity felt by the circle 
+
   boolean taken=false;
   int errorX;
   int errorY;
-  
-  
+  Ball palla1 = new Ball(200, width/2, 0,0 ,7);
+  Ball palla2 = new Ball(100, (int)width/3, 0,0 ,7);
+  Ball palla3 = new Ball(400, (int) width/4, 0,0,7);
 void setup(){ 
 
  
@@ -25,14 +22,16 @@ void draw(){
   
   background(0);                    //black background
   
-  stroke(255,255,255);                  //limit line color (in RGB)
+  stroke(255,255,0);                  //limit line color (in RGB)
   
   fill(0,0,255);
   
   rect(0,height - heightV,width,0); //limit line creator
   
-  
-  if(!taken){
+  palla1.update();
+  palla2.update();
+  palla3.update();
+  /*if(!taken){
     speedY += gravity;                 //speedY and gravity updates
     circleY += speedY;  
   }else{
@@ -47,16 +46,16 @@ void draw(){
     speedY=-speedY;
    
   }
-    //<>//
+   */ //<>//
 
-  ellipse(circleX,(int)circleY,circleDiameter, circleDiameter);
+  
   
  
   
   
 }
 
-void mousePressed(){
+/*void mousePressed(){
   if((mouseX-circleX<circleDiameter/2 && mouseX-circleX>-circleDiameter/2)&&
   (mouseY-circleY<circleDiameter/2 && mouseY-circleY>-circleDiameter/2)){
     taken=true;
@@ -73,4 +72,4 @@ void mouseReleased(){
     taken=false;
   }
   
-}
+}*/
