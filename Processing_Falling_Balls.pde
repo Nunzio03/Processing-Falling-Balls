@@ -3,12 +3,14 @@
   int height = 1700;                 //window height
   int heightV  = 200 ;               //floor height ( 0 means ground level )
 
-  boolean taken=false;
-  int errorX;
-  int errorY;
+
+  
   Ball palla1 = new Ball(200, width/2, 0,0 ,7);
   Ball palla2 = new Ball(100, (int)width/3, 0,0 ,7);
-  Ball palla3 = new Ball(400, (int) width/4, 0,0,7);
+  Ball palla3 = new Ball(300, (int) width-500,0,0,7);
+
+
+  
 void setup(){ 
 
  
@@ -31,6 +33,8 @@ void draw(){
   palla1.update();
   palla2.update();
   palla3.update();
+ 
+
   /*if(!taken){
     speedY += gravity;                 //speedY and gravity updates
     circleY += speedY;  
