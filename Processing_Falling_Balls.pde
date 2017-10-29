@@ -2,9 +2,9 @@
   int width = 1900;                  //window width
   int height = 1700;                 //window height
   int heightV  = 200 ;               //floor height ( 0 means ground level )
-  Ball palla1 = new Ball(200, width/2, 0,0 ,2);
-  Ball palla2 = new Ball(100, (int)width/3, 0,0 ,4);
-  Ball palla3 = new Ball(300, (int) width-500,0,0,7);
+  Ball palla1 = new Ball("palla1",200, width/2, 0,0 ,2);
+  Ball palla2 = new Ball("palla2",150, (int)width/3, 0,0 ,4);
+  Ball palla3 = new Ball("palla3",300, (int) width-500,0,0,7);
   
 
     
