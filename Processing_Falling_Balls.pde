@@ -2,20 +2,18 @@
   int width = 1900;                  //window width
   int height = 1700;                 //window height
   int heightV  = 200 ;               //floor height ( 0 means ground level )
-
-  Ball[] campo= new Ball[3];
   Ball palla1 = new Ball(200, width/2, 0,0 ,2);
   Ball palla2 = new Ball(100, (int)width/3, 0,0 ,4);
   Ball palla3 = new Ball(300, (int) width-500,0,0,7);
   
-  campo[0] = palla1;
-  campo[1] = palla2;
-  campo[2] = palla3;
-  
-  
-    
-void setup(){ 
 
+    
+void setup(){
+  
+
+  
+  
+  
  
   surface.setSize(width,height);     //setting up window dimensions
  
@@ -36,9 +34,8 @@ void draw(){
   palla1.update();
   palla2.update();
   palla3.update();
- 
-
-   //<>//
+  
+  
   
   
  
