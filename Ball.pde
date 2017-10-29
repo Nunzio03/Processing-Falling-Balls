@@ -13,7 +13,7 @@
     boolean taken = false;             // boolean value that senses if the object is picked by the mouse
     int errorX;                        
     int errorY;
-    LinkedList<Ball> interactors = new LinkedList<>();  //list of others balls that can interact with this ball
+    LinkedList<Ball> interactors = new LinkedList();  //list of others balls that can interact with this ball
     
     public Ball(int circleDiameter, int circleX, double circleY, double speedY, double gravity){
       
