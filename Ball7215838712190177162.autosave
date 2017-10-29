@@ -99,7 +99,7 @@
 
       for(Ball interactor : interactors){
 
-        System.out.println(interactor.toString()+":"+interactor.getX());
+        System.out.println(interactor.toString()+":"+interactor.get());
 
 
 

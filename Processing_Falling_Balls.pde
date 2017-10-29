@@ -34,6 +34,8 @@ void draw(){
   palla1.update();
   palla2.update();
   palla3.update();
+
+  palla1.addInteractor(palla2);
   
   
   
