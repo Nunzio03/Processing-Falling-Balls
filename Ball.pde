@@ -5,24 +5,26 @@
     //parameters, the initialized values are just suggested values (except for the boolean parameter "taken") 
     // (in the constructor infact the wil be ovewrited)
     private String name;
-    private int circleDiameter = 200;          //Diameter of the circle
-    private double circleX = width/2;             //circle starting X position
-    private double circleY = circleDiameter/2; //circle starting Y position
-    private double speedY = 0;                  //circle starting speedY
-    private double gravity = 7;                //gravity felt by the circle 
+    private int circleDiameter;          //Diameter of the circle : 200
+    private double circleX;          //circle starting X position : width/2;
+    private double circleY; //circle starting Y position : circleDiameter/2
+    private double speedY;                  //circle starting speedY : 0
+    private double gravity;                //gravity felt by the circle : 7
     private boolean taken = false;             // boolean value that senses if the object is picked by the mouse
-
+   
     private int errorX;                        
     private int errorY;
     private LinkedList<Ball> interactors = new LinkedList();  //list of others balls that can interact with this ball
-    
-    public Ball(String name, int circleDiameter, int circleX, double circleY, double speedY, double gravity){
+    private String breed = "";
+
+    public Ball(String name, int circleDiameter, int circleX, double circleY, double speedY, double gravity,String breed){
       this.name=name;
       this.circleDiameter = circleDiameter;
       this.circleX = circleX;
       this.circleY = circleY;
       this.speedY = speedY;
       this.gravity = gravity;
+      this.breed = breed;
     
     }
     
@@ -50,15 +52,20 @@
       isTaken();
       
       interacting();
-      ellipse((int)circleX,(int)circleY,circleDiameter, circleDiameter);   //drawing of the ball
-      
+
+
+      ellipse((int)circleX,(int)circleY,circleDiameter, circleDiameter);   //drawing the ball
+
+
+     
       
     }
     
     public void isTaken(){                            //method made in order to verify if the object is picked or not
       if(mousePressed){
       
-        if((Math.abs(mouseX-circleX)<circleDiameter/2 )&&(Math.abs(mouseY-circleY)<circleDiameter/2)){
+        if(Math.sqrt( Math.pow(circleX-mouseX, 2) + Math.pow(circleY-mouseY,2)) <= 
+          (circleDiameter/2)){
         taken=true;
         errorX=mouseX-(int)circleX;
         errorY=mouseY-(int)circleY;
@@ -94,6 +101,17 @@
       return name;
     }
 
+    public String getBreed(){
+
+      return breed;
+
+    }
+
+    public void decrease(){
+
+      circleDiameter -= 1;
+    }
+
 
 
 
@@ -113,9 +131,19 @@
         if(Math.sqrt( Math.pow(circleX-interactor.getX(), 2) + Math.pow(circleY-interactor.getY(),2)) <= 
           ((circleDiameter/2)+interactor.getDiameter()/2)){
 
-          fill(255,0,0);
+
+
+          if(breed=="carnivoro" && interactor.getBreed()=="erbivoro" &&interactor.getDiameter()>0){
+            circleDiameter+=1;
+            interactor.decrease();
+          }
+
         }else{
-          fill(0,0,255);
+
+
+
+
+          
         }
 
 
