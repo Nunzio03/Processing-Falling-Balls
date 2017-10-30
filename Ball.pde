@@ -10,12 +10,13 @@
     private double circleY; //circle starting Y position : circleDiameter/2
     private double speedY;                  //circle starting speedY : 0
     private double gravity;                //gravity felt by the circle : 7
+    private String breed = "";
+
     private boolean taken = false;             // boolean value that senses if the object is picked by the mouse
-   
     private int errorX;                        
     private int errorY;
     private LinkedList<Ball> interactors = new LinkedList();  //list of others balls that can interact with this ball
-    private String breed = "";
+    
 
     public Ball(String name, int circleDiameter, int circleX, double circleY, double speedY, double gravity,String breed){
       this.name=name;
@@ -27,6 +28,8 @@
       this.breed = breed;
     
     }
+
+//___________________________UPDATE METHOD_________________________________________________
     
     public void update(){            //speed and position updates
       
@@ -60,6 +63,8 @@
      
       
     }
+
+//____________________________________________BASICS__________________________________________________________
     
     public void isTaken(){                            //method made in order to verify if the object is picked or not
       if(mousePressed){
@@ -79,10 +84,21 @@
       }
     
     }
+
+//____________________________________ACTIONS_________________________________________
+    public void addInteractor(Ball ball){        //method that adds an object to the list of the objects that can interact with this ball 
+
+      interactors.add(ball);
+    }
+
+     public void decrease(){
+
+      circleDiameter -= 1;
+    }
     
 
 
-    
+//___________________________________GETTERS AND SETTERS____________________________
     
     public int getX(){
       return (int) circleX;
@@ -107,10 +123,7 @@
 
     }
 
-    public void decrease(){
-
-      circleDiameter -= 1;
-    }
+   
 
 
 
@@ -118,10 +131,7 @@
 
 
 
-    public void addInteractor(Ball ball){        //method that adds an object to the list of the objects that can interact with this ball 
-
-      interactors.add(ball);
-    }
+    
 
     public void interacting(){
 
@@ -131,7 +141,7 @@
         if(Math.sqrt( Math.pow(circleX-interactor.getX(), 2) + Math.pow(circleY-interactor.getY(),2)) <= 
           ((circleDiameter/2)+interactor.getDiameter()/2)){
 
-
+          //code if two balls are interacting
 
           if(breed=="carnivoro" && interactor.getBreed()=="erbivoro" &&interactor.getDiameter()>0){
             circleDiameter+=1;
@@ -141,18 +151,13 @@
         }else{
 
 
-
+          //code if they're not interacting
 
           
         }
+      }
 
-
-    
-    
-    
     }
-
-  }
 
 }
     

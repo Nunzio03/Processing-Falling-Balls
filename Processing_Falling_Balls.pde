@@ -4,7 +4,7 @@
   int heightV  = 200 ;               //floor height ( 0 means ground level )
   
   LinkedList<Ball> fauna = new LinkedList();
-  Ball palla1 = new Ball("palla1",200, (int)0, 0,0 ,1,"carnivoro");
+  Ball palla1 = new Ball("palla1",200, (int)0, 0,8 ,1,"carnivoro");
   Ball palla2 = new Ball("palla2",150, (int) 201,0,0,7,"erbivoro");
   Ball palla3 = new Ball("palla3",50, (int) 252,0,0,7,"erbivoro");
   Ball palla4 = new Ball("palla4",180, (int) 433,0,0,7,"erbivoro");
@@ -16,7 +16,7 @@
   Ball palla10 = new Ball("palla10",100, (int) 1287,0,0,7,"erbivoro");
   Ball palla11 = new Ball("palla11",50, (int) 1400,0,0,7,"erbivoro");
   Ball palla12 = new Ball("palla12",100, (int) 1587,0,0,7,"erbivoro");
-  Ball palla13 = new Ball("palla13",50, (int) 1700,0,0,1,"carnivoro");
+  Ball palla13 = new Ball("palla13",50, (int) 1700,0,8,1,"carnivoro");
   
 
 
