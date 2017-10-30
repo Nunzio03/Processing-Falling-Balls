@@ -11,6 +11,7 @@
     private double speedY;                  //circle starting speedY : 0
     private double gravity;                //gravity felt by the circle : 7
     private String breed = "";
+    private boolean alive = true;
 
     private boolean taken = false;             // boolean value that senses if the object is picked by the mouse
     private int errorX;                        
@@ -32,35 +33,52 @@
 //___________________________UPDATE METHOD_________________________________________________
     
     public void update(){            //speed and position updates
-      
-      
 
-      if(!taken){               //normal updates
-        speedY += gravity;                 
-        circleY += speedY;  
-      }else{                    //updates if the object is picked 
-        
-        speedY=0;
-        circleX=mouseX-errorX;
-        circleY=mouseY-errorY;
-      }                               
-  
-      if(circleY+circleDiameter/2 >=height - heightV){   //corrections in order to remain in the screen bounds
-    
-        circleY = height - heightV - circleDiameter/2;
-        speedY=-speedY;
-   
+      if(circleDiameter<=15 && alive){
+        alive = false;
+        circleDiameter = 0;
+        System.out.println(name+" is dead");
       }
+
+      if(alive){
+
+
+        if(!taken){
+
+                       //normal updates
+          speedY += gravity;                 
+          circleY += speedY;  
+          }else{                 //updates if the object is picked 
+        
+          speedY=0;
+          circleX=mouseX-errorX;
+          circleY=mouseY-errorY;
+          }                               
+  
+          if(circleY+circleDiameter/2 >=height - heightV){   //corrections in order to remain in the screen bounds
+    
+            circleY = height - heightV - circleDiameter/2;
+            speedY=-speedY;
    
-      isTaken();
+          }
+   
+        isTaken();
       
-      interacting();
+        interacting();
 
-
-      ellipse((int)circleX,(int)circleY,circleDiameter, circleDiameter);   //drawing the ball
-
+        if(breed=="carnivoro"){
+          fill(255,0,0);
+        }
+        ellipse((int)circleX,(int)circleY,circleDiameter, circleDiameter);   //drawing the ball
+        fill(0,0,255);
 
      
+      
+
+      }
+      
+      
+
       
     }
 

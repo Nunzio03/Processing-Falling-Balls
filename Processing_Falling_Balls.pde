@@ -4,7 +4,12 @@
   int heightV  = 200 ;               //floor height ( 0 means ground level )
   
   LinkedList<Ball> fauna = new LinkedList();
-  Ball palla1 = new Ball("palla1",200, (int)0, 0,8 ,1,"carnivoro");
+
+  Random dado = new Random();
+
+
+  /*
+  Ball palla1 = new Ball("palla1",200, (int)0, 0,8 ,1,"erbivoro");
   Ball palla2 = new Ball("palla2",150, (int) 201,0,0,7,"erbivoro");
   Ball palla3 = new Ball("palla3",50, (int) 252,0,0,7,"erbivoro");
   Ball palla4 = new Ball("palla4",180, (int) 433,0,0,7,"erbivoro");
@@ -15,8 +20,9 @@
   Ball palla9 = new Ball("palla9",50, (int) 1100,0,0,7,"erbivoro");
   Ball palla10 = new Ball("palla10",100, (int) 1287,0,0,7,"erbivoro");
   Ball palla11 = new Ball("palla11",50, (int) 1400,0,0,7,"erbivoro");
-  Ball palla12 = new Ball("palla12",100, (int) 1587,0,0,7,"erbivoro");
-  Ball palla13 = new Ball("palla13",50, (int) 1700,0,8,1,"carnivoro");
+  Ball palla12 = new Ball("palla12",100, (int) 1587,0,0,7,"carnivoro");
+  Ball palla13 = new Ball("palla13",16, (int) 1700,0,8,9,"carnivoro");
+  */
   
 
 
@@ -28,7 +34,7 @@
 
     
 void setup(){
-
+/*
   fauna.add(palla1);
   fauna.add(palla2);
   fauna.add(palla3);
@@ -42,7 +48,14 @@ void setup(){
   fauna.add(palla11);
   fauna.add(palla12);
   fauna.add(palla13);
-  
+  */
+
+  for(int i = 0; i<=13;i++){
+
+    fauna.add( new Ball(("palla"+i),dado.nextInt(width/14)+16, dado.nextInt(width), 0,dado.nextInt(5) ,dado.nextInt(7),"erbivoro"));
+  }
+
+  fauna.add( new Ball("pallaX",200, (int)0, 0,8 ,1,"carnivoro"));
 
   for( Ball palla : fauna){
 
